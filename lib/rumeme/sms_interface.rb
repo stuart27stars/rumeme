@@ -97,7 +97,7 @@ module Rumeme
       response_message, response_code = post_data_to_server("MESSAGES\r\n.\r\n")
 
       if response_message =~ /^(\d+)\s+OK\s+(\d+).+/
-        if response_code >= 999
+        if response_code > 199
           raise BadServerResponse.new "M4U code is #{response_code}."
         end
         $2.to_i
